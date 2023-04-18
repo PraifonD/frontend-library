@@ -1,6 +1,0 @@
-.gradientGold {
-    background-image: linear-gradient(to right,#824f30,#cea576, #fee6d3, #cea576, #824f30);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: #00000000;
-    font-weight: 800;
-}
