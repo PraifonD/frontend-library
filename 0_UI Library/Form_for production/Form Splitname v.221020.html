@@ -1,0 +1,149 @@
+<meta charset="utf-8">
+<meta name="referrer" content="no-referrer" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">  
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+<script src="https://storage.googleapis.com/nbcloudbucket/javascript/coresplitnamev5_live.js"></script>
+
+
+<form id="__vtigerWebForm_top" accept-charset="utf-8" enctype="multipart/form-data">
+
+  <div class="form-row">
+  <input type="hidden" name="publicid" value="dfe0d7a514379e28013589e8658b4b8f">
+  <div class="form-group col-md-6">
+      <input type="text" name="firstname" class="form-control" placeholder="FIRST NAME" required>
+  </div>
+  <div class="form-group col-md-6">
+      <input type="text" name="lastname" class="form-control" placeholder="LAST NAME" required>
+  </div>
+  </div>
+
+  <div class="form-row">
+  <div class="form-group col-md-6">
+      <input type="email" name="email" class="form-control" id="inputEmail4" placeholder="E-MAIL" required>
+  </div>
+
+  <div class="form-group col-md-6">
+      <input type="tel" pattern="^\d{10}$" name="mobile" class="form-control" placeholder="PHONE NO." required>
+  </div>
+  </div>
+
+  <div class="form-row">
+  <div class="form-group col">
+  <select name="cf_854" id="inputState" class="form-control" data-label="label:Budget" required>
+    <option value="">Budget</option>
+    <option value="9.9 - 14.9 MB.*">9.9 - 14.9 MB.*</option>
+    <option value="15 - 19.9 MB.*">15 - 19.9 MB.*</option>
+    <option value="20 - 24.9 MB.*">20 - 24.9 MB.*</option>
+    <option value="25 - 29.9 MB.*">25 - 29.9 MB.*</option>
+    <option value="More than 30 MB.*">More than 30 MB.*</option>
+  </select>
+  </div>
+  </div>
+
+<!-- PDPA -->
+  <div class="form-pdpa">
+  <div class="form-row" style="margin: 0px 5px 0px 5px;">
+    <p>
+        <input type="checkbox" style="width: 15px; height: 15px;" name="checkbox1" class="checkbox-list" /> I have read and accept the Privacy Policy which contains the details of the protection of my personal data. You may read them at
+        <a id="privacy-policy" href="/privacy-policy" target="_blank" style="color: #C49C40;">Privacy Policy</a>
+    </p>
+  </div>
+  <div class="form-row" style="margin: 0px 5px 0px 5px;">
+    <p>
+        <input type="checkbox" style="width: 15px; height: 15px;" name="checkbox2" class="checkbox-list" /> I do not consent to disclose my information for the above mentioned purposes.
+    </p>
+  </div>
+  </div>
+<!-- PDPA END -->
+
+  <br><br>
+  <div class="col text-center">
+  <button id="btnform" type="submit" class="btn btn-primary btn-warning">REGISTER</button>
+  </div>
+
+</form>
+
+<!-- validate checkbox PDPA allow only one check -->
+<script type="text/javascript">
+  $('.checkbox-list').on('change', function () {
+    $('.checkbox-list').not(this).prop('checked', false);
+  });
+</script>
+<!-- validate checkbox PDPA allow only one check -->
+
+<script>
+  (function () {
+    const form = document.querySelector("#__vtigerWebForm_top");
+    const checkboxes = form.querySelectorAll("input[type=checkbox]");
+    const checkboxLength = checkboxes.length;
+    const firstCheckbox = checkboxLength > 0 ? checkboxes[0] : null;
+
+    function init() {
+      if (firstCheckbox) {
+        for (let i = 0; i < checkboxLength; i++) {
+          checkboxes[i].addEventListener("change", checkValidity);
+        }
+
+        checkValidity();
+      }
+    }
+
+    function isChecked() {
+      for (let i = 0; i < checkboxLength; i++) {
+        if (checkboxes[i].checked) return true;
+      }
+
+      return false;
+    }
+
+    function checkValidity() {
+      const errorMessage = !isChecked()
+        ? "At least one checkbox must be selected."
+        : "";
+      firstCheckbox.setCustomValidity(errorMessage);
+    }
+
+    init();
+  })();
+</script>
+
+
+
+<style>
+  form,
+  .form-control::placeholder,
+  .form-control {
+    font-family: 'IBM Plex Sans Thai', sans-serif;
+    color: #fff !important;
+  }
+
+  input.form-control,
+  select.form-control {
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #fff;
+    border-radius: 0;
+  }
+
+  #btnform {
+    background-color: #272727;
+    color: #beaf80;
+    border-radius: 0;
+    border: none;
+    padding: 0.5em 2em 0.2em 2em;
+  }
+
+  #btnform:hover {
+    background-color: transparent;
+    color: #272727;
+    border: 1px solid #272727;
+  }
+
+  .form-pdpa a {
+    color: #fff;
+  }
+</style>

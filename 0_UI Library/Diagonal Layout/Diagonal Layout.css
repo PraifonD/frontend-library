@@ -1,0 +1,69 @@
+:root {
+    /* Container */
+
+    /* CROP DIRECTION: choose one direction styling and turn the other line to a comment */    
+    --DiagonalCrop : var(--LeftisHigher);
+    --DiagonalCrop : var(--RightisHigher);
+    /* END of CROP DIRECTION */
+    
+    --ctn-width: 100vw;
+    --ctn-height: 800px;
+    --heightDiffPercent:30;
+    --ctn-bgcolor: rgb(18, 36, 36);
+    
+    /* content */
+    --headercolor: white;
+    --textcolor: white;
+    --contentAlign: center;
+    --contentJustify: flex-start;
+        
+    /* Calculations, Please leave these stuff alone */
+    --RightisHigher: polygon(0% calc(var(--heightDiffPercent) * 1%), 100% 0%, 100% calc((100 - var(--heightDiffPercent)) * 1%), 0% 100%); 
+    --LeftisHigher: polygon(0% 0%, 100% calc(var(--heightDiffPercent) * 1%), 100% 100%, 0% calc((100 - var(--heightDiffPercent)) * 1%));
+}
+
+/* make full page */
+body {
+    margin:0;
+    padding: 0;
+}
+
+/* container */
+.diagonalCtn {
+    background-color: var(--ctn-bgcolor);
+    box-sizing: border-box;
+    width: var(--ctn-width);
+    height: var(--ctn-height);
+    display: flex;
+    flex-wrap: nowrap;   
+    clip-path: var(--DiagonalCrop);
+    margin: calc(var(--heightDiffPercent) * var(--ctn-height) * -0.01 ) 0px;
+}
+/* Image */
+.img-col {
+    flex: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;   
+}
+.img-col img {
+    flex-shrink: 0;
+    min-width: 100%;
+    min-height: 100%;
+    object-fit: cover !important;
+}
+
+/* content */
+.content-col {
+    flex: 50%;
+    display: flex;
+    justify-content: var(--contentJustify);
+    align-items: var(--contentAlign);
+}
+.content {
+    padding: calc(var(--heightDiffPercent) * 1%);
+}
+.content-col h1, p {
+    color: var(--textcolor);
+}

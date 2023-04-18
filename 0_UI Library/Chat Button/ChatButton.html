@@ -1,0 +1,117 @@
+<head>
+    <script src="https://code.jquery.com/jquery-3.6.3.js"
+        integrity="sha256-nQLuAZGRRcILA+6dMBOvcRh5Pe310sBpanc6+QBmyVM=" crossorigin="anonymous"></script>
+</head>
+
+
+<div class="chatNavBar">
+    <button id="btn-main" title=""><img
+            src="./src/Chat.webp" /></button>
+    <div class="social-nav">
+        <a href="https://lin.ee/zHBbqwy" id="click-line" class="social-btn"><img
+                src="./src/Line.webp" title="" /></a>
+        <a href="https://m.me/BaanIssaraBangna" id="click-facebookChat" class="social-btn"><img
+                src="./src/FB.webp" title="" /></a>
+    </div>
+</div>
+
+<style>
+    .chatNavBar {
+        position: fixed;
+        right: 21px;
+        bottom: 21px;
+
+        display: flex;
+        flex-flow: column-reverse;
+        z-index: 999 !important;
+    }
+
+    .chatNavBar * {
+        box-sizing: border-box;
+        transition: 0.3s ease;
+    }
+
+    .chatNavBar button,
+    .social-nav a {
+        width: 42px;
+        height: 42px;
+        border: none;
+        border-radius: 50%;
+        margin: 4px;
+        padding: 0px !important;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .chatNavBar button:hover {
+        cursor: pointer;
+    }
+
+    .chatNavBar img {
+        display: block;
+        width: 26px;
+        height: 26px;
+    }
+
+    /* button color */
+    #btn-main {
+        background-color: #212123;
+        color: white;
+    }
+
+    #click-line {
+        background-color: #07b34f;
+    }
+
+    #click-facebookChat {
+        background-color: #006AFF;
+    }
+
+    /* Animation */
+    #btn-main {
+        z-index: 99;
+    }
+
+    #btn-main.active {
+        transform: rotate(180deg);
+    }
+
+    .social-btn {
+        opacity: 0;
+        position: absolute;
+        bottom: 0;
+    }
+
+    .social-btn.active {
+        opacity: 1;
+    }
+
+    /* ToolTips */
+    .ui-tooltip {}
+</style>
+
+<script>
+    $(document).ready(function () {
+
+
+        $('#btn-main').click(function () {
+            $(this).toggleClass('active');
+            if ($(this).hasClass('active')) {
+                $(this).html('<img src="./src/close.webp"></img>');
+            } else {
+                $(this).html('<img src="./src/Chat.webp"></img>');
+            }
+
+            $('.social-btn').toggleClass('active');
+            if ($('.social-btn').hasClass('active')) {
+                $('.social-btn').each(function (index, value) {
+                    $(this).css('bottom', (index + 1) * 48)
+                })
+            } else {
+                $('.social-btn').css('bottom', '0');
+            }
+        })
+    });
+</script>

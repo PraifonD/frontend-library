@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+<!-- ---------- STYLE START -------------- -->
+<style>
+    
+    /* slide style */
+    .slideshow {
+        width: 100%;
+        max-width: 1120px;
+        height: 80vh;
+        margin: 0 auto;
+        position: relative; 
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        
+            border: 1px solid palegreen ;
+    }
+
+    .slideshow .slide-container:not(:first-child) {
+        display: none;
+     }
+    .slideshow .slide {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    
+
+    .slideshow .slide .text {
+        background-color: rgb(130, 173, 129);
+        color: black;
+        font: 16px 300 sans-serif;
+        text-align: center;
+        flex: 1;
+        width: 100%;
+        height: 100%;
+        padding: 1em 2em;
+        box-sizing: border-box;
+    }
+
+    .slideshow .slide .img {
+        flex: 2.5;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: nowrap;
+
+        border: blue 2px solid;
+
+    }
+    .slideshow .slide .img img { 
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        overflow: hidden;
+    }
+
+
+    /* Dot style */
+    .dot-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 4px;
+        z-index: 99;
+    }
+    .dot-outer {
+        background-color: peachpuff;
+        border-radius: 20px;
+        padding: 2px 12px;
+        
+    }
+    .dot {
+        background-color: lightgrey;
+        border: none;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        margin: 4px;
+        display: inline-block;
+        vertical-align: middle;
+        cursor: pointer;
+        transition: background-color 0.2s ease;
+    }
+    .dot:hover,.dot.active {
+        background-color: salmon;
+    }
+
+
+
+    /* Arrow Style */
+    .arrow-container {
+        width: 100%;
+        position: absolute;
+        top: 50%;
+        z-index: 99; 
+    }
+
+    .arrow-prev, .arrow-next {
+        fill: black;
+        position: absolute;
+        fill: #fff;
+        cursor: pointer;
+    }
+    .arrow-prev {
+        left: 0;
+    }
+    .arrow-next {
+        right: 0;
+    }
+    .arrow-prev:hover, .arrow-nex:hover {
+        fill: grey;
+    }
+    
+
+
+
+
+
+
+
+    /* ---animation--- pick one and insert in the element's class*/
+
+    /* FADE */
+    .effect-fade {
+        animation-name: fade;
+        animation-duration: 5s;
+    }
+    @keyframes fade {
+        from {opacity: 0;}
+        to {opacity: 1;}
+    }
+
+    /* Slide in */
+    .effect-slide-left {
+
+    }
+
+
+
+
+
+</style>
+<!-- ---------- STYLE END -------------- -->
+
+</head>
+
+<body>
+
+<!-- --------- ELEMENT START ------------ -->
+<div class="slideshow">
+    
+    <div class="slide-container fade">
+        <div class="slide">
+            <div class="text">
+                <h1>Heading Element</h1>
+                <p> Lorem ipsum dolor sit amet. Quo delectus explicabo ut labore dolores et dicta odit quo nobis nemo. Ut modi animi est
+                omnis exercitationem est delectus itaque ea tempore totam. Qui minima autem aut dolorem alias ea sapiente optio aut
+                minima laudantium aut velit rerum aut minima nihil et possimus dolor.</p>
+            </div>
+            <div class="img">
+                <img src="/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp" />
+                <img src="/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp" />
+            </div>
+        </div>
+    </div>
+    <div class="slide-container fade">
+        <div class="slide">
+            <div class="text">
+                <h1>Heading Element</h1>
+                <p> Lorem ipsum dolor sit amet. Quo delectus explicabo ut labore dolores et dicta odit quo nobis nemo. Ut modi animi est
+                omnis exercitationem est delectus itaque ea tempore totam. Qui minima autem aut dolorem alias ea sapiente optio aut
+                minima laudantium aut velit rerum aut minima nihil et possimus dolor.</p>
+            </div>
+            <div class="img">
+                <img src="/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp" />
+            </div>
+        </div>
+    </div>
+    <div class="slide-container fade">
+        <div class="slide">
+            <div class="text">
+                <h1>Heading Element</h1>
+                <p> Lorem ipsum dolor sit amet. Quo delectus explicabo ut labore dolores et dicta odit quo nobis nemo. Ut modi animi est
+                omnis exercitationem est delectus itaque ea tempore totam. Qui minima autem aut dolorem alias ea sapiente optio aut
+                minima laudantium aut velit rerum aut minima nihil et possimus dolor.</p>
+            </div>
+            <div class="img">
+                <img src="/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp" />
+                <img src="/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp" />
+                <img src="/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp" />
+            </div>
+        </div>
+    </div>
+    
+
+    <div class="dot-container">
+        <div class="dot-outer">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+        </div>
+    </div>
+
+
+    <div class="arrow-container">
+        <a class="arrow-prev" onclick="slidesArrow( -1, this)">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path d="M28.05 36 16 23.95 28.05 11.9l2.15 2.15-9.9 9.9 9.9 9.9Z" />
+            </svg>
+        </a>
+        <a class="arrow-next" onclick="slidesArrow( 1, this)">
+            <svg xmlns="http://www.w3.org/2000/svg" height="48" width="48">
+                <path d="m18.75 36-2.15-2.15 9.9-9.9-9.9-9.9 2.15-2.15L30.8 23.95Z" />
+            </svg>
+        </a>
+    </div>  
+     
+</div>
+<!-- --------- ELEMENT END ------------ -->
+
+
+
+<!-- --------- JS START ------------ -->
+<script>  
+    let slideIndex = 1;
+
+    function slidesArrow(n, el) {
+        slideIndex += n;
+        showSlides(slideIndex, el);
+    }
+
+    function slideDot(n, el) {
+        
+    }
+
+    function showSlides(n, el) {
+        let thisSlideShow = el.parentElement.parentElement;
+        let slides = thisSlideShow.getElementsByClassName('slide-container');
+
+        if (n > slides.length) { slideIndex = 1 };
+        if (n < 1) { slideIndex=slides.length };
+
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        slides[slideIndex - 1].style.display = "block";
+    }
+</script>
+<!-- --------- JS END ------------ -->
+
+
+
+
+
+
+</body>
+
+</html>
