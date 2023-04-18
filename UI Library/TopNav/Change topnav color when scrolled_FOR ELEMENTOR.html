@@ -1,0 +1,92 @@
+<body>
+    <div id="topnavContainer">
+        <nav id="topnav" style="height:60px; border-bottom: #fff 2px solid; width: 100%;"> THIS IS THE TOPNAV</nav>
+        <div class="pageSection" style="background-color: aqua; height: 100vh;">SECTION 1</div>
+        <div class="pageSection" style="background-color: red; height: 100vh;">SECTION 2</div>
+        <div class="pageSection" style="background-color: green; height: 100vh;">SECTION 3</div>
+        <div class="pageSection" style="background-color: blue; height: 100vh;">SECTION 4</div>
+        <div class="pageSection" style="background-color: purple; height: 100vh;"></div>
+    </div>
+    
+</body>
+
+<style>
+    * {
+        box-sizing: border-box;
+        margin: 0;
+    }
+    #topnav {
+        position: fixed;
+        padding: 20px;
+    }
+    .pageSection {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+</style>
+
+
+// Change #topnav color according to the scrolled section
+
+<script>
+    const sections = document.querySelectorAll('.pageSection');
+    const topnav = document.querySelector('#topnav');
+    const topnavContainer = document.querySelector('#topnavContainer');
+    const topnavImg = topnav.querySelectorAll('img');
+    const topnavSvg = topnav.querySelectorAll('svg');
+    
+    // Apply Smooth Transition
+    topnavContainer.style.transition = "0.4s ease";
+    topnavImg.forEach(img => {
+        img.style.transition = "0.4s ease";
+    });
+    topnavSvg.forEach(svg => {
+        svg.style.transition = "0.4s ease";
+    });
+
+        window.onscroll = function () {
+        switch (true) {
+
+        case (window.scrollY + topnav.offsetHeight > sections[4].offsetTop):
+            topnav.style.borderColor = "#000";
+            topnav.style.color = "#000";
+            topnavImg.forEach(img => {
+                img.style.filter = "brightness(0)";
+            });
+            topnavSvg.forEach(svg => {
+                svg.style.filter = "brightness(0)";
+            });
+            break;
+        case (window.scrollY + topnav.offsetHeight > sections[3].offsetTop):
+            topnav.style.borderColor = "#fff";
+            topnav.style.color = "#fff";
+            topnavImg.forEach(img => {
+                img.style.filter = "brightness(1)";
+            });
+            topnavSvg.forEach(svg => {
+                svg.style.filter = "brightness(1)";
+            });
+            break;
+        case (window.scrollY + topnav.offsetHeight > sections[2].offsetTop):
+            topnav.style.borderColor = "#000";
+            topnav.style.color = "#000";
+            topnavImg.forEach(img => {
+                    img.style.filter = "brightness(0)";
+                });
+            topnavSvg.forEach(svg => {
+                    svg.style.filter = "brightness(0)";
+                });
+            break;
+        default:
+            topnav.style.borderColor = "#fff";
+            topnav.style.color = "#fff";
+            topnavImg.forEach(img => {
+                img.style.filter = "brightness(1)";
+            });
+            topnavSvg.forEach(svg => {
+                svg.style.filter = "brightness(1)";
+            });
+    }
+    };
+</script>

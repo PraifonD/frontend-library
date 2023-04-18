@@ -1,0 +1,176 @@
+<div class="timeline-tab-container">
+<div class="box">
+	<section class="tabset--content" data-active-tab="tab-1">
+		<div class="tabset--section" id="content-1">
+			[pafe-template id="3433"]
+		</div>
+		<div class="tabset--section" id="content-2">
+			[pafe-template id="3596"]
+		</div>
+		<div class="tabset--section" id="content-3">
+			[pafe-template id="3597"]
+		</div>
+		<div class="tabset--section" id="content-4">
+			[pafe-template id="3598"]
+		</div>
+	</section>
+
+	<nav class="tabset--nav">
+		<div id="tab-btn-1" class="nav--item -is--active" data-tab-target="tab-1" onclick="openTab('content-1')">
+			<span>Exterior</span>
+		</div>
+
+		<div id="tab-btn-2" class="nav--item" data-tab-target="tab-2" onclick="openTab('content-2')">
+			<span>Interior</span>
+		</div>
+
+		<div id="tab-btn-3" class="nav--item" data-tab-target="tab-3" onclick="openTab('content-3')">
+			<span>Retails</span>
+		</div>
+
+		<div id="tab-btn-4" class="nav--item" data-tab-target="tab-4" onclick="openTab('content-4')">
+			<span>Facilities</span>
+		</div>
+
+		<div class="active--tab__marker"></div>
+		<div class="timeline"></div>
+	</nav>
+</div>
+</div>
+
+
+<style>
+
+.timeline-tab-container	{
+	width: 100%;
+	display: flex;
+	justify-content: center;
+	
+}
+ .box {
+	 width: 100%;
+	 overflow: hidden;
+	 display: flex;
+	 justify-content: center;
+	 flex-flow: column wrap;
+}
+
+ .tabset--nav {
+	 position: relative;
+	 display: flex;
+	 justify-content: space-around;
+	 align-items: center;
+	 flex-flow: row nowrap;
+	 width: 100%;
+}
+ .nav--item {
+	 padding: 2em 0 ;
+	 flex-basis: 25%;
+	 text-align: center;
+	 text-transform: uppercase;
+	 letter-spacing: 2px;
+	 font-size: 0.8em;
+	 cursor: pointer;
+	 color: #231F20;
+}
+.nav--item span {
+	padding: 0.5em 1em;
+	border: solid 1px transparent;
+	transition: 0.2s;
+}
+.nav--item.-is--active span {
+	border-color: #204350;
+}
+
+
+ .active--tab__marker {
+	 height: 0.2em;
+	 width: 8px;
+     height: 8px;
+     border-radius: 50%;
+	 background-color: #204350;
+	 position: absolute;
+	 bottom: 0;
+	 transition: 0.24s;
+}
+ .nav--item:nth-of-type(1).-is--active ~ .active--tab__marker {
+	 left: 12%;
+}
+ .nav--item:nth-of-type(2).-is--active ~ .active--tab__marker {
+	 left: 37%;
+}
+ .nav--item:nth-of-type(3).-is--active ~ .active--tab__marker {
+	 left: 62%;
+}
+ .nav--item:nth-of-type(4).-is--active ~ .active--tab__marker {
+	 left: 87%;
+}
+.timeline {
+	display: block;
+	width: 85%;
+	height: 1px;
+	background-color: #231F20;
+	position: absolute;
+	bottom: 4px;
+	left: 7.5%;
+}
+
+ .tabset--content {
+	 position: relative;
+	 width: 100%;
+	 flex-grow: 1;
+	 display: flex;
+	 transition: 0.3s;
+}
+
+ .tabset--section {
+	 width: 100%;
+	 padding-top: 10em;
+	 text-align: center;
+	 color: black;
+	 font-weight: 900;
+	 letter-spacing: 0.5em;
+}
+.tabset--section:not(:first-child) {
+	display: none;
+	transition: 0.2s;
+}
+.tabset--section:first-child {
+	display: block;
+}
+ 
+</style>
+
+
+<script>
+    var refreshSliders = function () {
+            console.log("sliderrefreshed");
+            $(".swiper-container").each(function (index) {
+                const imageCarousel = $('.swiper-container'),
+                    swiperInstance = imageCarousel.data('swiper');
+                swiperInstance.params.observer = true;
+                swiperInstance.params.observeParents = true;
+                swiperInstance.update();
+            });
+        }
+        
+    $(".nav--item").click(function () {
+            var val = $(this).attr('data-tab-target');
+            console.log(val);
+
+            $('.nav--item').removeClass('-is--active');
+            $(this).addClass('-is--active');
+
+            refreshSliders();
+        });
+		
+	function openTab(content) {
+			var i;
+			var x = document.querySelectorAll(".tabset--section");
+			for (i = 0; i < x.length; i++) {
+				x[i].style.display = "none";
+			}
+			document.getElementById(content).style.display = "block";
+
+		}
+</script>

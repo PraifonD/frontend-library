@@ -1,0 +1,336 @@
+<ul id="acd-1" class="acd-component">
+
+    <li style="background-image: url(/0_UI\ Library/-SOURCES/);" class="acd-element active">
+        <div class="title">
+            <h1>TITLE OF THE SECTION 1</h1>
+        </div>
+        <div class="content-container">
+            <div class="content">
+                <a><img src="/0_UI Library/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp"></a>
+                <p>Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting
+                    of alphabetic
+                    and numeric characters, ...</p>
+            </div>
+        </div>
+    </li>
+
+    <li style="background-image: url(/Accordian/1_1.jpg);" class="acd-element">
+        <div class="title">
+            <h1>TITLE OF THE SECTION 1</h1>
+        </div>
+        <div class="content-container">
+            <div class="content">
+                <a><img src="/0_UI Library/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp"></a>
+                <p>Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting
+                    of alphabetic
+                    and numeric characters, ...</p>
+            </div>
+        </div>
+    </li>
+
+    <li style="background-image: url(/Accordian/1_1.jpg);" class="acd-element">
+        <div class="title">
+            <h1>TITLE OF THE SECTION 1</h1>
+        </div>
+        <div class="content-container">
+            <div class="content">
+                <a><img src="/0_UI Library/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp"></a>
+                <p>Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting
+                    of alphabetic
+                    and numeric characters, ...</p>
+            </div>
+        </div>
+    </li>
+
+</ul>
+<ul  id="acd-2" class="acd-component">
+
+    <li style="background-image: url(/0_UI\ Library/-SOURCES/);" class="acd-element active">
+        <div class="title">
+            <h1>TITLE OF THE SECTION 1</h1>
+        </div>
+        <div class="content-container">
+            <div class="content">
+                <a><img src="/0_UI Library/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp"></a>
+                <p>Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting
+                    of alphabetic
+                    and numeric characters, ...</p>
+            </div>
+        </div>
+    </li>
+
+    <li style="background-image: url(/Accordian/1_1.jpg);" class="acd-element">
+        <div class="title">
+            <h1>TITLE OF THE SECTION 1</h1>
+        </div>
+        <div class="content-container">
+            <div class="content">
+                <a><img src="/0_UI Library/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp"></a>
+                <p>Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting
+                    of alphabetic
+                    and numeric characters, ...</p>
+            </div>
+        </div>
+    </li>
+
+    <li style="background-image: url(/Accordian/1_1.jpg);" class="acd-element">
+        <div class="title">
+            <h1>TITLE OF THE SECTION 1</h1>
+        </div>
+        <div class="content-container">
+            <div class="content">
+                <a><img src="/0_UI Library/-SOURCES/Image/AW_Home Banner_12 2022__Mobile New Text-02-02.webp"></a>
+                <p>Text messaging, or texting, is the act of composing and sending electronic messages, typically consisting
+                    of alphabetic
+                    and numeric characters, ...</p>
+            </div>
+        </div>
+    </li>
+
+</ul>
+
+<script>
+    const smallScreen = window.matchMedia("(max-width: 720px)");
+    const largeScreen = window.matchMedia("(min-width: 720px)");
+
+    const allAccordionComponent = document.querySelectorAll('.acd-component');  
+        allAccordionComponent.forEach(accordionComponent => {
+            // Import elements from that Accordion
+            const allAccordionElement = accordionComponent.querySelectorAll('.acd-element');
+
+            // When CLICK each the accordion element
+            allAccordionElement.forEach(accordionElement => {
+                
+                if (smallScreen.matches) {
+                    accordionElement.addEventListener('click', function (accordionElement) {
+                        // Remove and Add active class
+                        allAccordionElement.forEach(function (accordionElement) {
+                            accordionElement.classList.remove("active");
+                        });
+                        this.classList.add('active');
+                });
+
+                } else if (largeScreen.matches) {
+                    accordionElement.addEventListener('mouseover', function (accordionElement) {
+                        // Remove and Add active class
+                        allAccordionElement.forEach(function (accordionElement) {
+                            accordionElement.classList.remove("active");
+                        });
+                        this.classList.add('active');
+                    });
+                }
+            });
+        }
+    );
+</script>
+
+
+<!-- CLick only -->
+<!-- <script>
+    const allAccordionComponent = document.querySelectorAll('.acd-component');  
+        allAccordionComponent.forEach(accordionComponent => {
+            // Import elements from that Accordion
+            const allAccordionElement = accordionComponent.querySelectorAll('.acd-element');
+
+            // When CLICK each the accordion element
+            allAccordionElement.forEach(accordionElement => {
+                accordionElement.addEventListener('click', function (accordionElement) {
+
+                    // Remove and Add active class
+                    allAccordionElement.forEach(function (accordionElement) {
+                        accordionElement.classList.remove("active");
+                    });
+                    this.classList.add('active');
+                });
+            });
+        }
+    );
+</script> -->
+
+<style>
+    /* ------Sections Styling-------- */
+    :root {
+        --default-width: 1;
+        --active-width: 5;
+        --m-default-height: 1;
+        --m-active-height: 7;
+    }
+
+    .acd-component * {
+        transition: all 1s ease !important;
+        
+        white-space:nowrap;
+        overflow:hidden
+    }
+
+    .acd-component {
+        width: 100%;
+        height: 400px;
+    }
+
+    @media only screen and (max-width: 720px) {
+        .acd-component {
+            height: 300px;
+        }
+    }
+
+    .acd-element {
+        background: rgba(154, 143, 118, 0.7);
+        border: none;
+        background-position: center !important;
+        background-size: cover !important;
+        background-repeat: no-repeat;
+        background-blend-mode: multiply;
+        cursor: pointer;
+    }
+
+    /* ------Function-------- */
+    /* Default */
+    .acd-component {
+        margin: 0;
+        padding: 0;
+        display: flex;
+    }
+
+    .acd-component * {
+        box-sizing: border-box;
+    }
+
+    .acd-element {
+        flex: var(--default-width);
+        overflow: hidden;
+    }
+
+    .acd-element.active {
+        flex: var(--active-width);
+    }
+
+    .acd-element.active .title {
+        padding: 0px;
+    }
+
+    .acd-element .content {
+        width: 100%;
+        height: 100%;
+    }
+    .acd-element table {
+       table-layout:fixed
+    }
+    .acd-element table td {
+       white-space:nowrap;
+       overflow:hidden
+    }
+    .acd-element img {
+        object-fit: cover !important;
+        width: 100%;
+        height: 100%;
+    }
+    
+
+    /* ------Horizontal-------- */
+
+    .acd-element {
+        display: flex;
+        flex-flow: row nowrap;
+    }
+
+    .acd-element .title *,
+    .acd-element .content-container * {
+        margin: 0px;
+        padding: 0px;
+    }
+
+    .content a:has(> img) {
+        width: auto;
+        height: 100%;
+    }
+
+    /* Title */
+    .acd-element .title {
+        width: 100%;
+        height: auto;
+        opacity: 1;
+    }
+
+    .acd-element.active .title {
+        width: 0px;
+        height: auto;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    /* Content */
+    .acd-element .content-container {
+        width: 0px;
+        height: auto;
+        overflow: hidden;
+        opacity: 0;
+    }
+
+    .acd-element.active .content-container {
+        width: 100%;
+        height: auto;
+        opacity: 1;
+    }
+
+    /* ------END of Horizontal-------- */
+
+
+    @media only screen and (max-width: 720px) {
+
+        /* ------Vertical-------- */
+        .acd-component {
+            flex-flow: column;
+        }
+
+        .acd-element {
+            flex-flow: column;
+            flex: var(--m-default-height);
+        }
+
+        .acd-element.active {
+            flex: var(--m-active-height);
+        }
+
+        .acd-element .title *,
+        .acd-element .content-container * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .content a:has(> img) {
+            width: 100%;
+            height: auto;
+        }
+
+        /* Title */
+        .acd-element .title {
+            height: 100%;
+            width: auto;
+            opacity: 1;
+        }
+
+        .acd-element.active .title {
+            height: 0px;
+            width: auto;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        /* Content */
+        .acd-element .content-container {
+            height: 0px;
+            width: auto;
+            overflow: hidden;
+            opacity: 0;
+        }
+
+        .acd-element.active .content-container {
+            height: 100%;
+            width: auto;
+            opacity: 1;
+        }
+
+        /* ------END of Vertical-------- */
+    }
+</style>

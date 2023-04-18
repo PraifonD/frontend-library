@@ -1,0 +1,153 @@
+<!-- DESKTOP -->
+<!-- buttons  -->
+<div id="houseType-btn">
+    <button id="tab1-btn" class="typeTab-btn tab-active" onclick="openTab('houseType-1')"><b>PEONY</b></button>
+    <button id="tab2-btn" class="typeTab-btn" onclick="openTab('houseType-2')"><b>DAISY</b></button>
+    <button id="tab3-btn" class="typeTab-btn" onclick="openTab('houseType-3')"><b>PANSY</b></button>
+    <button id="tab4-btn" class="typeTab-btn" onclick="openTab('houseType-4')"><b>GERBERA</b></button>
+</div>
+
+<!-- tabs -->
+<div id="houseType-1" class="houseType-tab">
+    <img src="https://storage.googleapis.com/tararomestate-trendytarabangyai/1/2022/10/Peony.webp" loading="lazy">
+</div>
+<div id="houseType-2" class="houseType-tab" style="display:none">
+    <img src="https://storage.googleapis.com/tararomestate-trendytarabangyai/1/2022/10/Diasy.webp" loading="lazy">
+</div>
+<div id="houseType-3" class="houseType-tab" style="display:none">
+    <img src="https://storage.googleapis.com/tararomestate-trendytarabangyai/1/2022/10/Pensy.webp" loading="lazy">
+</div>
+<div id="houseType-4" class="houseType-tab" style="display:none">
+    <img src="https://storage.googleapis.com/tararomestate-trendytarabangyai/1/2022/10/Gerbera.webp" loading="lazy">
+</div>
+
+<!-- MOBILE -->
+<!-- buttons  -->
+<div id="houseType-btn-m">
+    <button id="tab1-btn-m" class="typeTab-btn tab-active" onclick="openTabM('houseType-1-m')"><b>PEONY</b></button>
+    <button id="tab2-btn-m" class="typeTab-btn" onclick="openTabM('houseType-2-m')"><b>DAISY</b></button>
+    <button id="tab3-btn-m" class="typeTab-btn" onclick="openTabM('houseType-3-m')"><b>PANSY</b></button>
+    <button id="tab4-btn-m" class="typeTab-btn" onclick="openTabM('houseType-4-m')"><b>GERBERA</b></button>
+</div>
+
+<!-- tabs -->
+<div id="houseType-1-m" class="houseType-tab-m">
+    <img src="https://storage.googleapis.com/tararomestate-trendytarabangyai/1/2022/11/house-type-peony-m.webp"
+        loading="lazy">
+</div>
+<div id="houseType-2-m" class="houseType-tab-m" style="display:none">
+    <img src="https://storage.googleapis.com/tararomestate-trendytarabangyai/1/2022/11/house-type-daisy-m.webp"
+        loading="lazy">
+</div>
+<div id="houseType-3-m" class="houseType-tab-m" style="display:none">
+    <img src="https://storage.googleapis.com/tararomestate-trendytarabangyai/1/2022/11/house-type-pansy-m.webp"
+        loading="lazy">
+</div>
+<div id="houseType-4-m" class="houseType-tab-m" style="display:none">
+    <img src="https://storage.googleapis.com/tararomestate-trendytarabangyai/1/2022/11/house-type-gerbera-m.webp"
+        loading="lazy">
+</div>
+
+
+
+
+<script>
+    function openTab(houseType) {
+        var i;
+        var x = document.getElementsByClassName("houseType-tab");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(houseType).style.display = "block";
+    }
+    // Change Tab Color
+    var btnContainer = document.getElementById('houseType-btn');
+    var btns = btnContainer.getElementsByClassName('typeTab-btn');
+
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+            var current = document.getElementsByClassName('tab-active');
+            current[0].className = current[0].className.replace('tab-active', ' ');
+            this.className = "tab-active";
+        });
+    }
+
+
+    function openTabM(houseTypeM) {
+        var i;
+        var x = document.getElementsByClassName("houseType-tab-m");
+        for (i = 0; i < x.length; i++) {
+            x[i].style.display = "none";
+        }
+        document.getElementById(houseTypeM).style.display = "block";
+    }
+    // Change Tab Color
+    var btnContainer = document.getElementById('houseType-btn-m');
+    var btns = btnContainer.getElementsByClassName('typeTab-btn');
+
+    for (var i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+            var current = document.getElementsByClassName('tab-active');
+            current[0].className = current[0].className.replace('tab-active', ' ');
+            this.className = "tab-active";
+        });
+    }
+
+</script>
+
+<style>
+    .houseType-tab img,
+    .houseType-tab-m img {
+        width: 100%;
+        object-fit: contain;
+        display: block;
+        margin: 0 auto;
+    }
+
+    #houseType-btn button,
+    #houseType-btn-m button {
+        font-family: 'DB Heavant', sans-serif;
+        font-size: 18px;
+        padding: 0px 4px;
+        margin: 0px;
+        width: 100%;
+        text-align: center;
+        border: none;
+    }
+
+    #houseType-btn button:not(:last-child),
+    #houseType-btn-m button:not(:last-child) {
+        border-right: 1px solid black;
+    }
+
+    #houseType-btn button:not(.tab-active),
+    #houseType-btn-m button:not(.tab-active) {
+        color: #222A2A;
+        background-color: transparent;
+    }
+
+    .tab-active,
+    #houseType-btn button:hover,
+    #houseType-btn button:focus,
+    #houseType-btn-m button:hover,
+    #houseType-btn-m button:focus {
+        color: #927543;
+        background-color: transparent;
+    }
+
+    #houseType-btn,
+    #houseType-btn-m {
+        margin: 20px auto;
+        display: flex;
+        justify-content: space-around;
+        width: 50%;
+    }
+
+    @media only screen and (max-width: 1024px) {
+
+        #houseType-btn-m button {
+            padding: 10px;
+            font-size: 16px;
+        }
+    }
+</style>

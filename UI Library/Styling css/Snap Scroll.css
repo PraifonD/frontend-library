@@ -1,0 +1,10 @@
+/* Section Classname must be pageSection */
+html,
+.elementor {
+    scroll-behavior: smooth;
+    scroll-snap-type: y mandatory;
+}
+
+.pageSection {
+    scroll-snap-align: start;
+}
